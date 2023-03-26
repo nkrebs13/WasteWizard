@@ -36,6 +36,10 @@ object AndroidX {
     // should be debug dependency only
     const val COMPOSE_UI_TEST_MANIFEST = "androidx.compose.ui:ui-tooling:$VERSION_COMPOSE"
 
+    const val VERSION_ROOM = "2.5.0"
+    const val ROOM_RUNTIME = "androidx.room:room-runtime:$VERSION_ROOM"
+    const val ROOM_KTX = "androidx.room:room-ktx:$VERSION_ROOM"
+    const val ROOM_COMPILER = "androidx.room:room-compiler:$VERSION_ROOM"
 }
 
 object Testing {

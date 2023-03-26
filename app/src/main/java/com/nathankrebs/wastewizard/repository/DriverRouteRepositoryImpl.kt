@@ -1,11 +1,13 @@
 package com.nathankrebs.wastewizard.repository
 
+import com.nathankrebs.wastewizard.db.DriverLocalDataSource
 import com.nathankrebs.wastewizard.model.DriverItem
 import com.nathankrebs.wastewizard.model.RouteItem
 import com.nathankrebs.wastewizard.network.DriverRemoteDataSource
 
 class DriverRouteRepositoryImpl(
-    private val driverRemoteSource: DriverRemoteDataSource,
+    private val driverRemoteDataSource: DriverRemoteDataSource,
+    private val driverLocalDataSource: DriverLocalDataSource,
 ) : DriverRouteRepository {
     override suspend fun getAllDrivers(): List<DriverItem> {
         TODO("Not yet implemented")
