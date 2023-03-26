@@ -28,7 +28,7 @@ class DriverListViewModel(
             try {
                 val drivers = repository.getAllDrivers()
                 _uiState.update { currentState ->
-                    currentState.copy(drivers = drivers, status = UiStatus.Loading)
+                    currentState.copy(drivers = drivers, status = UiStatus.Data)
                 }
             } catch (e: Exception) {
                 _uiState.update { currentState ->

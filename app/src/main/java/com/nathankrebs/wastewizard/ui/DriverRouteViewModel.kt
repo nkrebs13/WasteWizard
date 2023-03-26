@@ -79,6 +79,5 @@ class DriverRouteViewModel(
     enum class UiStatus {
         Loading,
         Data,
-        Error,
     }
 }
