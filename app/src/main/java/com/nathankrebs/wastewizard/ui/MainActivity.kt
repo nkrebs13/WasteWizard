@@ -1,4 +1,4 @@
-package com.nathankrebs.wastewizard
+package com.nathankrebs.wastewizard.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
