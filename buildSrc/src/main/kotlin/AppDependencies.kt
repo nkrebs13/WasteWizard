@@ -42,6 +42,11 @@ object AndroidX {
     const val ROOM_COMPILER = "androidx.room:room-compiler:$VERSION_ROOM"
 }
 
+object Koin {
+    const val CORE = "io.insert-koin:koin-android:3.3.3"
+    const val COMPOSE = "io.insert-koin:koin-androidx-compose:3.4.2"
+}
+
 object Testing {
     const val JUNIT = "junit:junit:4.13.2"
     const val JUNIT_EXT = "androidx.test.ext:junit:1.1.5"
