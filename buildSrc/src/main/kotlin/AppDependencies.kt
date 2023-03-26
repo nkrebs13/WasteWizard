@@ -4,6 +4,10 @@ object AppVersions {
     const val COMPILE = 33
 }
 
+object Kotlin {
+    const val VERSION = "1.8.10"
+}
+
 object AndroidX {
     const val CORE = "androidx.core:core-ktx:1.7.0"
 
