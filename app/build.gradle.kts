@@ -51,17 +51,19 @@ android {
 }
 
 dependencies {
+    implementation(Kotlin.SERIALIZATION)
     implementation(AndroidX.CORE)
     implementation(AndroidX.LIFECYCLE_RUNTIME)
     implementation(AndroidX.ACTIVITY_COMPOSE)
     implementation(AndroidX.COMPOSE_UI)
     implementation(AndroidX.COMPOSE_UI_PREVIEW)
     implementation(AndroidX.COMPOSE_MATERIAL)
-    implementation(Kotlin.SERIALIZATION)
+    debugImplementation(AndroidX.COMPOSE_UI_TOOLING)
+    debugImplementation(AndroidX.COMPOSE_UI_TEST_MANIFEST)
+
     testImplementation(Testing.JUNIT)
+
     androidTestImplementation(Testing.JUNIT_EXT)
     androidTestImplementation(Testing.ESPRESSO)
     androidTestImplementation(Testing.JUNIT_UI_COMPOSE)
-    debugImplementation(AndroidX.COMPOSE_UI_TOOLING)
-    debugImplementation(AndroidX.COMPOSE_UI_TEST_MANIFEST)
 }
