@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nathankrebs.wastewizard.model.DriverItem
 import com.nathankrebs.wastewizard.repository.DriverRouteRepository
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
@@ -24,6 +25,10 @@ class DriverListViewModel(
     val uiState: StateFlow<UiState> = _uiState
 
     init {
+        requestData()
+    }
+
+    private fun requestData() {
         viewModelScope.launch {
             try {
                 val drivers = repository.getAllDrivers()
@@ -35,6 +40,18 @@ class DriverListViewModel(
                     currentState.copy(status = UiStatus.Error)
                 }
             }
+        }
+    }
+
+    /**
+     * To be invoked when there is a network error and we need to re-request the data
+     */
+    fun onRetryDataClick() {
+        viewModelScope.launch {
+            _uiState.update { currentState ->
+                currentState.copy(status = UiStatus.Loading)
+            }
+            requestData()
         }
     }
 
