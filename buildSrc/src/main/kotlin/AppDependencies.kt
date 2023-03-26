@@ -11,8 +11,8 @@ object AndroidX {
 
     const val ACTIVITY_COMPOSE = "androidx.activity:activity-compose:1.3.1"
 
-    const val VERSION_COMPOSE = "1.2.0"
-    const val VERSION_COMPOSE_COMPILER = "1.2.0"
+    const val VERSION_COMPOSE = "1.4.0"
+    const val VERSION_COMPOSE_COMPILER = "1.4.4"
     const val COMPOSE_UI = "androidx.compose.ui:ui:$VERSION_COMPOSE"
     const val COMPOSE_UI_PREVIEW = "androidx.compose.ui:ui-tooling-preview:$VERSION_COMPOSE"
     const val COMPOSE_MATERIAL = "androidx.compose.material:material:$VERSION_COMPOSE"
