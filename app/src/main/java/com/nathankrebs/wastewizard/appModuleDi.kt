@@ -10,6 +10,7 @@ import com.nathankrebs.wastewizard.network.NetworkingSingleton
 import com.nathankrebs.wastewizard.repository.DriverRouteRepository
 import com.nathankrebs.wastewizard.repository.DriverRouteRepositoryImpl
 import com.nathankrebs.wastewizard.ui.DriverListViewModel
+import com.nathankrebs.wastewizard.ui.DriverRouteViewModel
 import io.ktor.client.HttpClient
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -41,6 +42,12 @@ val appModuleDi = module {
 
     viewModel<DriverListViewModel> {
         DriverListViewModel(
+            repository = get(),
+        )
+    }
+
+    viewModel<DriverRouteViewModel> {
+        DriverRouteViewModel(
             repository = get(),
         )
     }
