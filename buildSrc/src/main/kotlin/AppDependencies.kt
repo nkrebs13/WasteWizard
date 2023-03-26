@@ -6,6 +6,7 @@ object AppVersions {
 
 object Kotlin {
     const val VERSION = "1.8.10"
+    const val SERIALIZATION = "org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1"
 }
 
 object AndroidX {
