@@ -40,6 +40,9 @@ object AndroidX {
     const val ROOM_RUNTIME = "androidx.room:room-runtime:$VERSION_ROOM"
     const val ROOM_KTX = "androidx.room:room-ktx:$VERSION_ROOM"
     const val ROOM_COMPILER = "androidx.room:room-compiler:$VERSION_ROOM"
+
+    const val VERSION_NAVIGATION = "2.5.3"
+    const val NAVIGATION = "androidx.navigation:navigation-compose:$VERSION_NAVIGATION"
 }
 
 object Koin {

@@ -63,6 +63,7 @@ dependencies {
     implementation(AndroidX.COMPOSE_MATERIAL)
     implementation(AndroidX.ROOM_RUNTIME)
     implementation(AndroidX.ROOM_KTX)
+    implementation(AndroidX.NAVIGATION)
     implementation(Koin.CORE)
     implementation(Koin.COMPOSE)
     implementation(Networking.KTOR_CORE)

@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
-import com.nathankrebs.wastewizard.ui.compose.DriverListScreen
+import com.nathankrebs.wastewizard.ui.compose.MainApp
 import com.nathankrebs.wastewizard.ui.theme.WasteWizardTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,9 +21,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    DriverListScreen(
-                        modifier = Modifier.fillMaxSize(),
-                    )
+                    MainApp(modifier = Modifier.fillMaxSize())
                 }
             }
         }
