@@ -5,7 +5,16 @@ import com.nathankrebs.wastewizard.db.model.RouteLocalItem
 
 class DriverLocalDataSourceImpl(
     private val database: DriverRouteDatabase,
-): DriverLocalDataSource {
+) : DriverLocalDataSource {
+
+    override suspend fun saveDrivers(drivers: List<DriverLocalItem>) {
+        return database.driverDao().insertDrivers(drivers)
+    }
+
+    override suspend fun saveRoutes(routes: List<RouteLocalItem>) {
+        return database.routeDao().insertRoutes(routes)
+    }
+
     override suspend fun getAllDrivers(): List<DriverLocalItem> {
         return database.driverDao().getAllDrivers()
     }

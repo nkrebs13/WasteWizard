@@ -4,6 +4,17 @@ import com.nathankrebs.wastewizard.db.model.DriverLocalItem
 import com.nathankrebs.wastewizard.db.model.RouteLocalItem
 
 interface DriverLocalDataSource {
+
+    /**
+     * Save a list of [RouteLocalItem] into the local data source
+     */
+    suspend fun saveDrivers(drivers: List<DriverLocalItem>)
+
+    /**
+     * Save a list of [RouteLocalItem] into the local data source
+     */
+    suspend fun saveRoutes(routes: List<RouteLocalItem>)
+
     /**
      * Returns a list of all [DriverLocalItem]
      */
