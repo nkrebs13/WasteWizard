@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nathankrebs.wastewizard.R
 import com.nathankrebs.wastewizard.model.RouteItem
+import com.nathankrebs.wastewizard.ui.theme.listItemPadding
 
 @Composable
 fun RouteList(
@@ -39,7 +40,7 @@ fun RouteListItem(
     modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = modifier.padding(horizontal = 16.dp, vertical = 8.dp,),
+        modifier = modifier.padding(listItemPadding),
         verticalArrangement = Arrangement.spacedBy(2.dp),
     ) {
         Text(

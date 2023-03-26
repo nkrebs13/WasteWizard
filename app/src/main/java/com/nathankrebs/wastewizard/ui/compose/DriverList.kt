@@ -5,14 +5,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -30,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nathankrebs.wastewizard.R
 import com.nathankrebs.wastewizard.model.DriverItem
+import com.nathankrebs.wastewizard.ui.theme.listItemPadding
 import kotlin.random.Random
 
 /**
@@ -45,15 +45,13 @@ fun DriverList(
     onDriverClick: (DriverItem) -> Unit,
 ) {
     LazyColumn(modifier = modifier) {
-        itemsIndexed(drivers) { index, driverItem ->
+        items(drivers, key = { it.id }) { driverItem ->
             DriverListItem(
                 modifier = Modifier.fillMaxWidth(),
                 name = driverItem.name,
                 onClick = { onDriverClick.invoke(driverItem) }
             )
-            if (index < drivers.lastIndex) {
-                Divider()
-            }
+            Divider()
         }
     }
 }
@@ -69,7 +67,7 @@ fun DriverListItem(
 ) {
     Row(
         modifier = modifier
-            .padding(horizontal = 16.dp, vertical = 8.dp)
+            .padding(listItemPadding)
             .clickable(onClick = onClick),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically,

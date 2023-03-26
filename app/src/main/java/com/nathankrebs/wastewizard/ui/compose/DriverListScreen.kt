@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import com.nathankrebs.wastewizard.ui.DriverListViewModel
 import org.koin.androidx.compose.getViewModel
 
-
 @Composable
 fun DriverListScreen(
     modifier: Modifier = Modifier,

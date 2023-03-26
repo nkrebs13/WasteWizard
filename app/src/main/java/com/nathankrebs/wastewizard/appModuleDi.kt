@@ -1,6 +1,5 @@
 package com.nathankrebs.wastewizard
 
-import androidx.lifecycle.ViewModel
 import com.nathankrebs.wastewizard.db.DriverLocalDataSource
 import com.nathankrebs.wastewizard.db.DriverLocalDataSourceImpl
 import com.nathankrebs.wastewizard.db.DriverRouteDatabase
