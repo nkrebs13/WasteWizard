@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">WasteWizard</string>
+
+    <string name="route_list_type_label">Type: %s</string>
 </resources>
