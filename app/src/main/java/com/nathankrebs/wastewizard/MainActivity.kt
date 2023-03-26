@@ -7,9 +7,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.nathankrebs.wastewizard.network.DriverRemoteDataSourceImpl
+import com.nathankrebs.wastewizard.network.NetworkingSingleton
 import com.nathankrebs.wastewizard.ui.theme.WasteWizardTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,22 +25,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    val textToShow = remember { mutableStateOf("") }
+                    LaunchedEffect(Unit) {
+                        textToShow.value = DriverRemoteDataSourceImpl(
+                            NetworkingSingleton.AppHttpClient
+                        ).getDriverAndRoute().toString()
+                    }
+                    Text(text = textToShow.value)
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    WasteWizardTheme {
-        Greeting("Android")
     }
 }
