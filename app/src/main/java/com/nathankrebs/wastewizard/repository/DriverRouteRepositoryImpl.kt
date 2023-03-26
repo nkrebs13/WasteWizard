@@ -1,5 +1,7 @@
 package com.nathankrebs.wastewizard.repository
 
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import com.nathankrebs.wastewizard.db.DriverLocalDataSource
 import com.nathankrebs.wastewizard.db.model.DriverLocalItem
 import com.nathankrebs.wastewizard.db.model.RouteLocalItem
@@ -8,6 +10,7 @@ import com.nathankrebs.wastewizard.model.RouteItem
 import com.nathankrebs.wastewizard.network.DriverRemoteDataSource
 import com.nathankrebs.wastewizard.network.model.DriverApiItem
 import com.nathankrebs.wastewizard.network.model.RouteApiItem
+import kotlin.random.Random
 
 class DriverRouteRepositoryImpl(
     private val driverRemoteDataSource: DriverRemoteDataSource,
@@ -74,7 +77,17 @@ private fun DriverLocalItem.toModel(): DriverItem =
     DriverItem(
         id = this.id,
         name = this.name,
+        hexColor = getRandomColorHex()
     )
+
+private fun getRandomColorHex(): String {
+    val color = Color(
+        red = Random.nextInt(256),
+        green = Random.nextInt(256),
+        blue = Random.nextInt(256),
+    )
+    return "#${Integer.toHexString(color.toArgb())}"
+}
 
 /**
  * Converts an instance of [RouteLocalItem] to [RouteItem]
