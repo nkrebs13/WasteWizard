@@ -1,4 +1,4 @@
-package com.nathankrebs.wastewizard.ui.compose
+package com.nathankrebs.wastewizard.ui.compose.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

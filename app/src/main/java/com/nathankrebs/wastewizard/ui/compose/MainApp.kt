@@ -12,6 +12,8 @@ import androidx.navigation.navArgument
 import com.nathankrebs.wastewizard.model.DriverItem
 import com.nathankrebs.wastewizard.network.NetworkingSingleton
 import com.nathankrebs.wastewizard.ui.compose.Navigation.navToDriverRoute
+import com.nathankrebs.wastewizard.ui.compose.screens.DriverListScreen
+import com.nathankrebs.wastewizard.ui.compose.screens.DriverRouteScreen
 
 /**
  * The "main" screen for the application

@@ -1,4 +1,4 @@
-package com.nathankrebs.wastewizard.ui.compose
+package com.nathankrebs.wastewizard.ui.compose.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
