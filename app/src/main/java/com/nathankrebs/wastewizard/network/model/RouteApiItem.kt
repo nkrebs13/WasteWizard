@@ -1,4 +1,4 @@
-package com.nathankrebs.wastewizard.network
+package com.nathankrebs.wastewizard.network.model
 
 import kotlinx.serialization.Serializable
 

@@ -51,6 +51,8 @@ android {
 }
 
 dependencies {
+    implementation(Kotlin.COROUTINES)
+    implementation(Kotlin.COROUTINES_ANDROID)
     implementation(Kotlin.SERIALIZATION)
     implementation(AndroidX.CORE)
     implementation(AndroidX.LIFECYCLE_RUNTIME)
@@ -58,6 +60,11 @@ dependencies {
     implementation(AndroidX.COMPOSE_UI)
     implementation(AndroidX.COMPOSE_UI_PREVIEW)
     implementation(AndroidX.COMPOSE_MATERIAL)
+    implementation(Networking.KTOR_CORE)
+    implementation(Networking.KTOR_CLIENT)
+    implementation(Networking.KTOR_CONTENT_NEGOTIATION)
+    implementation(Networking.KTOR_SERIALIZATION)
+
     debugImplementation(AndroidX.COMPOSE_UI_TOOLING)
     debugImplementation(AndroidX.COMPOSE_UI_TEST_MANIFEST)
 
