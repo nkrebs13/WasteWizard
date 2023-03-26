@@ -38,6 +38,10 @@ class DriverListViewModel(
         }
     }
 
+    fun onDriverClick(driverItem: DriverItem) {
+        // todo - future commit
+    }
+
     data class UiState(
         val drivers: List<DriverItem>,
         val status: UiStatus,
