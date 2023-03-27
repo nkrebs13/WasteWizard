@@ -65,8 +65,8 @@ fun DriverListItem(
 ) {
     Row(
         modifier = modifier
-            .padding(listItemPadding)
-            .clickable(onClick = onClick),
+            .clickable(onClick = onClick)
+            .padding(listItemPadding),
         horizontalArrangement = Arrangement.spacedBy(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
