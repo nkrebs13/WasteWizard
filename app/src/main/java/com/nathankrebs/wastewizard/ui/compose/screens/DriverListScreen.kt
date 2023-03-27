@@ -35,7 +35,9 @@ fun DriverListScreen(
         content = { paddingValues ->
             if (uiState.value.status == DriverListViewModel.UiStatus.Error) {
                 ErrorUi(
-                    modifier = Modifier.padding(paddingValues).fillMaxSize(),
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize(),
                     onClickRetry = { viewModel.onRetryDataClick() }
                 )
             } else {

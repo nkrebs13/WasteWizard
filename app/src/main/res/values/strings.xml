@@ -2,6 +2,8 @@
     <string name="app_name">WasteWizard</string>
 
     <string name="driver_list_screen_header">Drivers</string>
+    <string name="route_list_screen_header">Routes for driver: %s</string>
+    <string name="route_list_screen_header_default">Routes</string>
     <string name="route_list_type_label">Type: %s</string>
     <string name="loading_dialog">Loading...</string>
 </resources>
