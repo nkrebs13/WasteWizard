@@ -11,18 +11,24 @@ from https://d49c3a78-a4f2-437d-bf72-569334dea17c.mock.pstmn.io/data.
 - If the driver id is divisible by 5 then display the C type route
 - If the driver id doesn't meet any of the above requirements, then show the I type route
 
-###  Instructions for building application
+### Instructions for building application
 
 - Android Studio or Android Build Tools
 
 ### Tech Stack
-- Jetpack Compose for UI
-- Koin for dependency injection
-- Ktor for networking
-- Room for database cache
-- Coroutines for asynchronous operations
+
+- MVVM for app architecture
+- [Room](https://developer.android.com/training/data-storage/room) for on-device local storage
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) for UI
+- [Koin](https://insert-koin.io/) for dependency injection
+- [Coroutines + Flow](https://kotlinlang.org/docs/coroutines-overview.html) for asynchronous
+  operations
+- [Ktor](https://ktor.io/) for networking
+- [Android Navigation](https://developer.android.com/jetpack/androidx/releases/navigation) For
+  navigation within the app
 
 ### Other Features
+
 - Light and dark mode
 - Error + retry on networking
 - Local storage into database for offline use
