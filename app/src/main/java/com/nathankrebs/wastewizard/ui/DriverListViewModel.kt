@@ -4,10 +4,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nathankrebs.wastewizard.model.DriverItem
 import com.nathankrebs.wastewizard.repository.DriverRouteRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DriverListViewModel(
     private val repository: DriverRouteRepository,
@@ -29,14 +31,16 @@ class DriverListViewModel(
 
     private fun requestData() {
         viewModelScope.launch {
-            try {
-                val drivers = repository.getAllDrivers()
-                _uiState.update { currentState ->
-                    currentState.copy(drivers = drivers, status = UiStatus.Data)
-                }
-            } catch (e: Exception) {
-                _uiState.update { currentState ->
-                    currentState.copy(status = UiStatus.Error)
+            withContext(Dispatchers.IO) {
+                try {
+                    val drivers = repository.getAllDrivers()
+                    _uiState.update { currentState ->
+                        currentState.copy(drivers = drivers, status = UiStatus.Data)
+                    }
+                } catch (e: Exception) {
+                    _uiState.update { currentState ->
+                        currentState.copy(status = UiStatus.Error)
+                    }
                 }
             }
         }

@@ -5,10 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.nathankrebs.wastewizard.model.DriverItem
 import com.nathankrebs.wastewizard.model.RouteItem
 import com.nathankrebs.wastewizard.repository.DriverRouteRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DriverRouteViewModel(
     private val repository: DriverRouteRepository,
@@ -30,31 +32,33 @@ class DriverRouteViewModel(
     fun getRoutes(driverItem: DriverItem) {
         viewModelScope.launch {
             // try to get a route specific to this driver
-            val routeForDriver = repository.getRouteWithId(driverItem.id)
-            if (routeForDriver != null) {
+            withContext(Dispatchers.IO) {
+                val routeForDriver = repository.getRouteWithId(driverItem.id)
+                if (routeForDriver != null) {
+                    _uiState.update { currentState ->
+                        currentState.copy(
+                            status = UiStatus.Data,
+                            currentDriver = driverItem,
+                            routes = listOf(routeForDriver),
+                        )
+                    }
+                    return@withContext
+                }
+
+                // if the driver doesn't have a route specifically for them, we evaluate what kind of
+                // route they should get
+                val routes = when {
+                    driverItem.id % 2 == 0 -> repository.getAllResidentialRoutes()
+                    driverItem.id % 5 == 0 -> repository.getAllCommercialRoutes()
+                    else -> repository.getAllIndustrialRoutes()
+                }
                 _uiState.update { currentState ->
                     currentState.copy(
                         status = UiStatus.Data,
                         currentDriver = driverItem,
-                        routes = listOf(routeForDriver),
+                        routes = routes,
                     )
                 }
-                return@launch
-            }
-
-            // if the driver doesn't have a route specifically for them, we evaluate what kind of
-            // route they should get
-            val routes = when {
-                driverItem.id % 2 == 0 -> repository.getAllResidentialRoutes()
-                driverItem.id % 5 == 0 -> repository.getAllCommercialRoutes()
-                else -> repository.getAllIndustrialRoutes()
-            }
-            _uiState.update { currentState ->
-                currentState.copy(
-                    status = UiStatus.Data,
-                    currentDriver = driverItem,
-                    routes = routes,
-                )
             }
         }
     }
